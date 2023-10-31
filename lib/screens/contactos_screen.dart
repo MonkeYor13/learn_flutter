@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ContactsScreen extends StatelessWidget {
-  const ContactsScreen({super.key});
+  ContactsScreen({super.key});
+
+  final List<Map<String, String>> favoriteContacts = [
+    {'nameContact': 'Pedro', 'phone': '54955555555', 'type': 'Movil'},
+    {'nameContact': 'Maria', 'phone': '54955555555', 'type': 'Movil'},
+    {'nameContact': 'Rufulin', 'phone': '54955555555', 'type': 'Home'},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +38,34 @@ class ContactsScreen extends StatelessWidget {
             width: double.infinity,
             fit: BoxFit.fill,
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'FAVORITOS',
+                  style: TextStyle(fontSize: 15.0, color: Colors.black54),
+                ),
+                MaterialButton(
+                  onPressed: () {},
+                  child: Text(
+                    'AÑADIR',
+                    style: TextStyle(fontSize: 15.0),
+                  ),
+                  textColor: Colors.blue,
+                ),
+              ],
+            ),
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: favoriteContacts.length,
+              itemBuilder: (BuildContext context, int index) {
+            return Text(favoriteContacts[index]['nameContact']!);
+          }
+          ),
+
         ],
       ),
     );
