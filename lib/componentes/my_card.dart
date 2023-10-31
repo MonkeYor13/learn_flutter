@@ -16,7 +16,6 @@ class MyCard extends StatelessWidget {
   final double height;
   final MaterialPageRoute routeName;
   final String image;
-
   //final ImageProvider image;
   final bool isAssets;
 
@@ -36,14 +35,16 @@ class MyCard extends StatelessWidget {
             },
             child: isAssets
                 ? Image.asset(
-                    image,
+                    this.image,
                     height: height,
                     width: wight,
+                    fit: BoxFit.cover,
                   )
                 : Image.network(
-                    image,
+                    this.image,
                     height: height,
                     width: wight,
+                    fit: BoxFit.cover,
                   ),
           ),
           Padding(

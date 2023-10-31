@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/imports/imports.dart';
 
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         'two': (__) => CounterScreen(),
         'three': (__) => MiniAppScreen(),
         'four': (__) => FuncionConArgumento(),
+        'five': (__) => ContactsScreen(),
       },
     );
   }
