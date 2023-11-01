@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/model/contact_user.dart';
 
 class ContactsScreen extends StatelessWidget {
   ContactsScreen({super.key});
 
-  final List<Map<String, String>> favoriteContacts = [
-    {'nameContact': 'Pedro', 'phone': '54955555555', 'type': 'Movil'},
-    {'nameContact': 'Maria', 'phone': '54955555555', 'type': 'Movil'},
-    {'nameContact': 'Rufulin', 'phone': '54955555555', 'type': 'Home'},
+  final List<ContactUser> favoriteContacts = [
+    ContactUser(nameContact: 'Pedro', phone: '54955555555', type: 'Movil'),
+    ContactUser(nameContact: 'Maria', phone: '54955555555', type: 'Movil'),
+    ContactUser(nameContact: 'Rufilin', phone: '54955555555', type: 'Home'),
   ];
 
   @override
@@ -59,13 +60,12 @@ class ContactsScreen extends StatelessWidget {
             ),
           ),
           ListView.builder(
-            shrinkWrap: true,
-            itemCount: favoriteContacts.length,
+              shrinkWrap: true,
+              itemCount: favoriteContacts.length,
               itemBuilder: (BuildContext context, int index) {
-            return Text(favoriteContacts[index]['nameContact']!);
-          }
-          ),
-
+                final favoriteContact = favoriteContacts[index];
+                return Text(favoriteContact.nameContact);
+              }),
         ],
       ),
     );

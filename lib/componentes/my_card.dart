@@ -14,7 +14,7 @@ class MyCard extends StatelessWidget {
   final String cardText;
   final double wight;
   final double height;
-  final MaterialPageRoute routeName;
+  final String routeName;
   final String image;
   //final ImageProvider image;
   final bool isAssets;
@@ -22,36 +22,24 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      elevation: 5,
-      shadowColor: Colors.amberAccent,
-      child: Column(
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(context, routeName);
-            },
-            child: isAssets
-                ? Image.asset(
-                    this.image,
-                    height: height,
-                    width: wight,
-                    fit: BoxFit.cover,
-                  )
-                : Image.network(
-                    this.image,
-                    height: height,
-                    width: wight,
-                    fit: BoxFit.cover,
-                  ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(cardText),
-          ),
-        ],
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, routeName);
+        },
+        child: Column(
+          children: [
+            FadeInImage(
+              placeholder: AssetImage('assets/Infinity.gif'),
+              image: isAssets
+                  ? AssetImage(image)
+                  : NetworkImage(image) as ImageProvider,
+              width: wight,
+              height: height,
+              fit: BoxFit.cover,
+            ),
+            Text(cardText),
+          ],
+        ),
       ),
     );
   }

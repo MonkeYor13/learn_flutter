@@ -18,8 +18,10 @@ class MyApp extends StatelessWidget {
         'two': (__) => CounterScreen(),
         'three': (__) => MiniAppScreen(),
         'four': (__) => FuncionConArgumento(),
-        'five': (__) => ContactsScreen(),
+        'five': (__) => CardScreen(),
+        'six': (__) => ContactsScreen(),
       },
+  
     );
   }
 }
