@@ -22,16 +22,16 @@ class MiniAppScreen extends StatelessWidget {
               MyCard(
                 cardText: 'Edad Perro',
                 image: 'assets/batman.jpg',
-                routeName: MaterialPageRoute(builder: (__) => CardScreen()),
+                routeName: 'five',
               ),
               SizedBox(
                 height: 10.0,
               ),
               MyCard(
-                cardText: 'Contactos App',
+                cardText: 'Contactos',
                 image:
                     'https://th.bing.com/th/id/OIP.iD-DLh5NRStUnPKSUq1IIQHaFf?pid=ImgDet&rs=1',
-                routeName: MaterialPageRoute(builder: (__) => ContactsScreen()),
+                routeName: 'six',
                 isAssets: false,
               ),
             ],
