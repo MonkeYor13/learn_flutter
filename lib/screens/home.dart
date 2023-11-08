@@ -32,13 +32,13 @@ class HomeScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'six');
+                Navigator.pushNamed(context, 'seven');
               },
               child: Text('Lista estatica'),
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'seven');
+                Navigator.pushNamed(context, 'eight');
               },
               child: Text('Lista dinamica'),
             ),
