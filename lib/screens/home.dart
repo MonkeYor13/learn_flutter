@@ -30,6 +30,18 @@ class HomeScreen extends StatelessWidget {
               },
               child: Text('Funcion como Argumento'),
             ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'six');
+              },
+              child: Text('Lista estatica'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'seven');
+              },
+              child: Text('Lista dinamica'),
+            ),
           ],
         ),
       ),
