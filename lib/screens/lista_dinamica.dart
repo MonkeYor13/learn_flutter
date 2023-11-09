@@ -11,12 +11,7 @@ class ListaDinamica extends StatelessWidget {
       appBar: AppBar(
         title: Text('Lista Dinamica'),
       ),
-      body: ListView(children: _crearItems()),
+      body: ListView(children: []),
     );
   }
-}
-
-_crearItems() {
-
-  return [];
 }

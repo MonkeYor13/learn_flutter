@@ -42,6 +42,12 @@ class HomeScreen extends StatelessWidget {
               },
               child: Text('Lista dinamica'),
             ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'nine');
+              },
+              child: Text('Password'),
+            ),
           ],
         ),
       ),

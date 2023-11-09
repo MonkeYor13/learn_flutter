@@ -7,3 +7,4 @@ export 'package:learn_flutter/screens/card_screen.dart';
 export 'package:learn_flutter/screens/contactos_screen.dart';
 export 'package:learn_flutter/screens/lista_estatica.dart';
 export 'package:learn_flutter/screens/lista_dinamica.dart';
+export 'package:learn_flutter/screens/password.dart';

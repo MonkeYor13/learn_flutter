@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_flutter/imports/imports.dart';
 
 
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         'six': (__) => ContactsScreen(),
         'seven': (__) => ListaEstatica(),
         'eight': (__) => ListaDinamica(),
+        'nine': (__) => Password(),
       },
     );
   }
