@@ -24,12 +24,37 @@ class _PasswordState extends State<Password> {
       body: Padding(
         padding: EdgeInsets.all(15),
         child: Form(
-          key: _formKey,
+            key: _formKey,
             child: Column(
-          children: [
-            Text('registro', style: TextStyle(),)
-          ],
-        )),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Registro',
+                  style: TextStyle(),
+                ),
+                Text(PasswordStrength.instructions),
+                TextField(
+                  controller: _passwordCtrl,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: "Password",
+                    hintText: "Password",
+                    //helperText: "ggg",
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        isVisible =!isVisible;
+                      },
+                      icon: Icon(
+                          isVisible ? Icons.visibility : Icons.visibility_off),
+                    ),
+                    suffixStyle: TextStyle(color: Colors.red),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0)),
+                    icon: Icon(Icons.password),
+                  ),
+                ),
+              ],
+            )),
       ),
     );
   }
