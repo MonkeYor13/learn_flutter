@@ -35,22 +35,98 @@ class _PasswordState extends State<Password> {
                 Text(PasswordStrength.instructions),
                 TextField(
                   controller: _passwordCtrl,
-                  obscureText: true,
+                  obscureText: isVisible,
                   decoration: InputDecoration(
                     labelText: "Password",
-                    hintText: "Password",
-                    //helperText: "ggg",
                     suffixIcon: IconButton(
                       onPressed: () {
-                        isVisible =!isVisible;
+                        setState(() {
+                          isVisible = !isVisible;
+                        });
                       },
                       icon: Icon(
                           isVisible ? Icons.visibility : Icons.visibility_off),
                     ),
-                    suffixStyle: TextStyle(color: Colors.red),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20.0)),
-                    icon: Icon(Icons.password),
+                  ),
+                  onChanged: (value) {
+                    passNotifier.value =
+                        PasswordStrength.calculate(text: value);
+                  },
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                PasswordStrengthChecker(
+                  strength: passNotifier,
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                SizedBox(
+                  width: double.maxFinite,
+                  height: 40.0,
+                  child: MaterialButton(
+                    onPressed: () {
+                      PasswordGeneratorConfiguration config =
+                          PasswordGeneratorConfiguration(
+                              length: 32,
+                              minUppercase: 8,
+                              minSpecial: 8,
+                              minDigits: 4,
+                              minLowercase: 2);
+                      final passwordGenerator =
+                          PasswordGenerator.fromConfig(configuration: config);
+                      final password = passwordGenerator.generate();
+
+                      setState(() {
+                        _passwordCtrl.text = password;
+                        passNotifier.value =
+                            PasswordStrength.calculate(text: password);
+                      });
+                    },
+                    color: Colors.amberAccent,
+                    child: Text('Generate Password'),
+                  ),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                SizedBox(
+                  width: double.maxFinite,
+                  height: 40.0,
+                  child: MaterialButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      if (passNotifier.value == PasswordStrength.secure) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('Password Secure and Procesaded'),
+                          backgroundColor: Colors.green,
+                        ));
+                        return;
+                      }
+                      if (passNotifier.value == PasswordStrength.strong) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('Password is Good but not secure.'),
+                          backgroundColor: Colors.yellow,
+                        ));
+                        return;
+                      }
+                      if (passNotifier.value == PasswordStrength.medium) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("Password isn't Strong and secure."),
+                          backgroundColor: Colors.orange,
+                        ));
+                        return;
+                      }
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text('Ohh! Password not secure.'),
+                        backgroundColor: Colors.red,
+                      ));
+                    },
+                    color: Colors.amberAccent,
+                    child: Text('Submit'),
                   ),
                 ),
               ],
