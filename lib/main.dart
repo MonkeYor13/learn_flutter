@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:learn_flutter/imports/imports.dart';
 
 
+//ctrl + P seleccionamos flutter diveces y luego Edge y click en Run
+
 
 
 void main() => runApp(const MyApp());
