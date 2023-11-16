@@ -48,6 +48,12 @@ class HomeScreen extends StatelessWidget {
               },
               child: Text('Password'),
             ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'ten');
+              },
+              child: Text('Music App'),
+            ),
           ],
         ),
       ),
