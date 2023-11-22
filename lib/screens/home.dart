@@ -54,6 +54,12 @@ class HomeScreen extends StatelessWidget {
               },
               child: Text('Music App'),
             ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'eleven');
+              },
+              child: Text('Json Archivo'),
+            ),
           ],
         ),
       ),

@@ -9,3 +9,4 @@ export 'package:learn_flutter/screens/lista_estatica.dart';
 export 'package:learn_flutter/screens/lista_dinamica.dart';
 export 'package:learn_flutter/screens/password.dart';
 export 'package:learn_flutter/screens/music_screen.dart';
+export 'package:learn_flutter/screens/lista_desde_json.dart';

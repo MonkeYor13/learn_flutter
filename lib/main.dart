@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_flutter/imports/imports.dart';
 
 
+
 //ctrl + P seleccionamos flutter diveces y luego Edge y click en Run
 
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         'eight': (__) => ListaDinamica(),
         'nine': (__) => Password(),
         'ten': (__) => MusicScreen(),
+        'eleven': (__) => ListaDesdeJson(),
       },
     );
   }
